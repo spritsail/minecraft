@@ -13,7 +13,7 @@ pipeline:
     verbose: true
     exec_pre: echo eula=true > eula.txt
     timeout: 60
-    log_pipe: grep -qm 1 '\[Server thread/INFO\]. Done ([0-9]\+\.[0-9]\+s)\!'
+    log_pipe: grep -qm 1 'Done ([0-9]\+\.[0-9]\+s)\!'
 
   publish:
     image: spritsail/docker-publish
@@ -28,8 +28,10 @@ pipeline:
     image: spritsail/notify
     when: { status: [ success, failure ] }
     secrets: [ webhook_url, notify_token ]
+    tag: ${MC_VER%%,*}
 
 matrix:
   MC_VER:
+    - 1.5.2   # for Inferno Mines
     - 1.12.2
     - 1.13.2,latest
