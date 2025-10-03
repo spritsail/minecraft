@@ -3,12 +3,11 @@ FROM spritsail/alpine:3.22
 ARG MC_VER=1.21.9
 ARG JRE_VER=21
 
-LABEL maintainer="Spritsail <minecraft@spritsail.io>" \
-      org.label-schema.vendor="Spritsail" \
-      org.label-schema.name="Minecraft server" \
-      org.label-schema.url="https://minecraft.net/en-us/download/server/" \
-      org.label-schema.description="Minecraft server" \
-      org.label-schema.version=${MC_VER}
+LABEL org.opencontainers.image.authors="Spritsail <minecraft@spritsail.io>" \
+      org.opencontainers.image.title="Minecraft server" \
+      org.opencontainers.image.url="https://minecraft.net/en-us/download/server/" \
+      org.opencontainers.image.description="Minecraft server" \
+      org.opencontainers.image.version=${MC_VER}
 
 RUN apk --no-cache add openjdk${JRE_VER}-jre nss curl jq && \
     \
