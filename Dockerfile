@@ -1,4 +1,4 @@
-FROM spritsail/alpine:3.22
+FROM spritsail/alpine:3.23
 
 ARG MC_VER=1.21.9
 ARG JRE_VER=21
